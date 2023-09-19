@@ -12,16 +12,16 @@ st.title("Baichuan 2")
 @st.cache_resource
 def init_model():
     model = AutoModelForCausalLM.from_pretrained(
-        "baichuan-inc/Baichuan2-13B-Chat",
+        "/model_dir/",
         torch_dtype=torch.float16,
         device_map="auto",
         trust_remote_code=True
     )
     model.generation_config = GenerationConfig.from_pretrained(
-        "baichuan-inc/Baichuan2-13B-Chat"
+        "/model_dir/"
     )
     tokenizer = AutoTokenizer.from_pretrained(
-        "baichuan-inc/Baichuan2-13B-Chat",
+        "/model_dir/",
         use_fast=False,
         trust_remote_code=True
     )
